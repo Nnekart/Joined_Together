@@ -14,6 +14,7 @@ public class GenericEnemy : MonoBehaviour
         bounceLeftWall,
         bounceRightWall,
         uncurl,
+        stretch, 
     }
 
     public enum VerticalMovement {
@@ -21,6 +22,7 @@ public class GenericEnemy : MonoBehaviour
         bounceUp, 
         sinWave, 
         none, 
+        stretch, 
     }
     public HorizontalMovement horizontalMovement;
     public VerticalMovement verticalMovement;
@@ -34,9 +36,11 @@ public class GenericEnemy : MonoBehaviour
     public float wiggleRange;
     [Range(0, 100)]
     public float wiggleFrequency;
+    [Range(0, 10)]
+    public float stretchAmount; 
 
-    public Transform positionA;
-    public Transform positionB;
+    public Transform positionA = null;
+    public Transform positionB = null;
     private float xPositionA;
     private float xPositionB;
     private float yPositionA;
@@ -51,10 +55,17 @@ public class GenericEnemy : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        xPositionA = positionA.position.x;
-        xPositionB = positionB.position.x;
-        yPositionA = positionA.position.y;
-        yPositionB = positionB.position.y;
+        if (positionA != null)
+        {
+            xPositionA = positionA.position.x;
+            yPositionA = positionA.position.y;
+        }
+        if (positionB != null)
+        {
+            xPositionB = positionB.position.x;
+            yPositionB = positionB.position.y;
+        }
+       
         startingXPos = transform.position.x;
         startingYPos = transform.position.y;
     }
@@ -107,6 +118,10 @@ public class GenericEnemy : MonoBehaviour
             case HorizontalMovement.uncurl:
 
                 break;
+            case HorizontalMovement.stretch:
+                transform.localScale = new Vector3 (adjustedHorizontalLerp * stretchAmount, transform.localScale.y, transform.localScale.z);
+
+                break;
         }
         switch (verticalMovement)
         {
@@ -117,7 +132,6 @@ public class GenericEnemy : MonoBehaviour
 
                 break;
             case VerticalMovement.bounceUp:
-                Debug.Log("bouncing up");
                 adjustedVerticalLerp = Mathf.Cos(adjustedVerticalLerp * Mathf.PI / 2) * bounceRange;
                 transform.position = LerpWithYValue(adjustedVerticalLerp);
 
@@ -126,7 +140,11 @@ public class GenericEnemy : MonoBehaviour
                 newYValue = Mathf.Sin(adjustedHorizontalLerp * wiggleFrequency) * wiggleRange;
                 transform.position = new Vector3(transform.position.x, startingYPos + newYValue, transform.position.z);
                 break;
+            case VerticalMovement.stretch:
+                transform.localScale = new Vector3(transform.localScale.x, adjustedVerticalLerp * stretchAmount, transform.localScale.z);
+                
 
+                break;
         }
     }
 
