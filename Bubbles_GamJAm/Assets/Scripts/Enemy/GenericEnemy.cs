@@ -162,7 +162,7 @@ public class GenericEnemy : MonoBehaviour
         {
             case (SpecialMovements.toxicBurst):
 
-                float size = EasingFunction.EaseInOutBack(0, stretchAmount, specialMovementValue);
+                float size = Mathf.Max(EasingFunction.EaseInOutBack(0, stretchAmount, specialMovementValue), 0);
                 transform.localScale = new Vector3(size, size, size);
 
                 break;
