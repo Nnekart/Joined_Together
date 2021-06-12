@@ -53,6 +53,7 @@ public class GenericEnemy : MonoBehaviour
     public float stretchAmount;
     [Range(0, 10)]
     public float coolDownAmount;
+    public bool isSpinningRight = false; 
 
 
     public Transform positionA = null;
@@ -119,14 +120,29 @@ public class GenericEnemy : MonoBehaviour
         }
 
         //Special
-        specialMovementValue += specialSpeed * Time.deltaTime;
-        if (specialMovementValue > 1)
+        if (specialMovements == SpecialMovements.spin && isSpinningRight)
         {
-            coolDown = coolDownAmount;
-            specialMovementValue = 0;
-            //specialMovementValue %= 1;
+            specialMovementValue -= specialSpeed * Time.deltaTime;
+            if (specialMovementValue < 0)
+            {
+                coolDown = coolDownAmount;
+                specialMovementValue = 1;
+                //specialMovementValue %= 1;
 
+            }
         }
+        else
+        {
+            specialMovementValue += specialSpeed * Time.deltaTime;
+            if (specialMovementValue > 1)
+            {
+                coolDown = coolDownAmount;
+                specialMovementValue = 0;
+                //specialMovementValue %= 1;
+
+            }
+        }
+      
 
         //Horizontal
         lerpValueHorizontal += horizontalSpeed * Time.deltaTime;
