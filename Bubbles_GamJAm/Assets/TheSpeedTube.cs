@@ -33,6 +33,6 @@ public class TheSpeedTube : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        playerBubble.floating = initalFloatValue + 3.0f;
+        playerBubble.floating = initalFloatValue;
     }
 }
