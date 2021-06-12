@@ -371,7 +371,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1002643454}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: cc6196ad668960b49841939d2c201297, type: 2}
   m_CullingMode: 0
@@ -542,7 +542,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8014986164044409497, guid: 3b5e0e4406353064695c1bee2f0fea3f, type: 3}
       propertyPath: m_Radius
-      value: 0.69
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014986164044409497, guid: 3b5e0e4406353064695c1bee2f0fea3f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8014986164044409499, guid: 3b5e0e4406353064695c1bee2f0fea3f, type: 3}
       propertyPath: m_Name
