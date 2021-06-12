@@ -1,7 +1,16 @@
 fileFormatVersion: 2
-guid: 5d2b19789b67faf4f83a076fc953c33e
+guid: f969e599d44c53948a0f690f46ea903d
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -2378460349121236553
+    second: fish spiral-Sheet_0
+  - first:
+      213: -5605452682478349748
+    second: fish spiral-Sheet_1
+  - first:
+      213: -2307733541140257809
+    second: fish spiral-Sheet_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,10 +50,10 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 7
+  alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 48
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -89,11 +98,74 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: fish spiral-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 0
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b1f6420ae20efed0800000000000000
+      internalID: -2378460349121236553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fish spiral-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 0
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c421e97fb7e6532b0800000000000000
+      internalID: -5605452682478349748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fish spiral-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 0
+        width: 208
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe3a41c329849ffd0800000000000000
+      internalID: -2307733541140257809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: abd259f1e18637549a4bba0c5ad54401
     internalID: 0
     vertices: []
     indices: 
