@@ -182,10 +182,11 @@ MonoBehaviour:
   wiggleFrequency: 89
   stretchAmount: 0
   coolDownAmount: 0
+  isSpinningRight: 0
   positionA: {fileID: 1028585405433427595}
   positionB: {fileID: 1028585406660410393}
   regularMaterial: {fileID: 2100000, guid: 786ce93847268404e83c4ff1e1408fd0, type: 2}
-  warningMaterial: {fileID: 2100000, guid: 28f3b3fa55dc1754d8284ccf0581b883, type: 2}
+  warningMaterial: {fileID: 2100000, guid: f013f33b2a500ba498c69d64a06e97ef, type: 2}
 --- !u!1 &1028585406660410394
 GameObject:
   m_ObjectHideFlags: 0

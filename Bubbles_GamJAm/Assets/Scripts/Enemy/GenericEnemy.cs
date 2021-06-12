@@ -181,11 +181,12 @@ public class GenericEnemy : MonoBehaviour
                 transform.rotation = Quaternion.Euler(rotationAmount);
                 break;
             case SpecialMovements.warningZone:
+
                 if (specialMovementValue < 0.75f)
                 {
                     boxCollider.enabled = false;
                     meshRenderer.material = warningMaterial;
-
+                    meshRenderer.material.color = new Color(meshRenderer.material.color.r, meshRenderer.material.color.g, meshRenderer.material.color.b, Mathf.Sin(specialMovementValue * 150));
                 }
                 else
                 {
