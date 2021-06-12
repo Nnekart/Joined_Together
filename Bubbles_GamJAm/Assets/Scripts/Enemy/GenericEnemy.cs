@@ -5,6 +5,14 @@ using UnityEngine;
 public class GenericEnemy : MonoBehaviour
 {
 
+
+    public enum SpecialMovements
+    {
+        none,
+        toxicBurst, 
+        spin, 
+        alternatePos, 
+    }
     public enum HorizontalMovement {
         none,
         acrossAndBackA,
@@ -13,19 +21,23 @@ public class GenericEnemy : MonoBehaviour
         acrossAndBackDiscrete,
         bounceLeftWall,
         bounceRightWall,
-        uncurl,
         stretch, 
+        
     }
 
     public enum VerticalMovement {
+        none,
         bounceDown, 
         bounceUp, 
         sinWave, 
-        none, 
         stretch, 
     }
+
+    public SpecialMovements specialMovements; 
     public HorizontalMovement horizontalMovement;
     public VerticalMovement verticalMovement;
+    [Range(0, 2)]
+    public float specialSpeed; 
     [Range (0,2)]
     public float horizontalSpeed;
     [Range(0, 2)]
@@ -37,20 +49,28 @@ public class GenericEnemy : MonoBehaviour
     [Range(0, 100)]
     public float wiggleFrequency;
     [Range(0, 10)]
-    public float stretchAmount; 
+    public float stretchAmount;
+    [Range(0, 10)]
+    public float coolDownAmount;
+
 
     public Transform positionA = null;
     public Transform positionB = null;
+
     private float xPositionA;
     private float xPositionB;
     private float yPositionA;
     private float yPositionB; 
     private float startingXPos;
     private float startingYPos;
-    
+    private float coolDown;
+
+    private float specialMovementValue; 
     private float lerpValueHorizontal;
     private float lerpValueVertical;
 
+
+    
 
     // Start is called before the first frame update
     private void Awake()
@@ -68,27 +88,78 @@ public class GenericEnemy : MonoBehaviour
        
         startingXPos = transform.position.x;
         startingYPos = transform.position.y;
+        coolDown = coolDownAmount;
     }
 
     private void Start()
     {
         lerpValueHorizontal = 0;
-        lerpValueVertical = 0; 
+        lerpValueVertical = 0;
+        specialMovementValue = 0;
 
     }
     // Update is called once per frame
     void Update()
     {
 
+        if (coolDown > 0.0f)
+        {
+            coolDown -= Time.deltaTime;
+            return; 
+        }
+
+        //Special
+        specialMovementValue += specialSpeed * Time.deltaTime;
+        if (specialMovementValue > 1)
+        {
+            coolDown = coolDownAmount;
+            specialMovementValue = 0;
+            //specialMovementValue %= 1;
+
+        }
+
+        //Horizontal
         lerpValueHorizontal += horizontalSpeed * Time.deltaTime;
         lerpValueHorizontal %= 2;
         float adjustedHorizontalLerp = Mathf.Abs(lerpValueHorizontal - 1);
+
+        //Vertical
         lerpValueVertical += verticalSpeed * Time.deltaTime;
         lerpValueVertical %= 2;
         float adjustedVerticalLerp = Mathf.Abs(lerpValueVertical - 1); 
 
         float newXValue = 0;
         float newYValue = 0;
+
+
+        switch(specialMovements)
+        {
+            case (SpecialMovements.toxicBurst):
+
+                float size = EasingFunction.EaseInOutBack(0, stretchAmount, specialMovementValue);
+                transform.localScale = new Vector3(size, size, size);
+
+                break;
+            case SpecialMovements.alternatePos:
+                if (specialMovementValue < 0.5f)
+                {
+                    transform.position = positionA.position;
+                } else
+                {
+                    transform.position = positionB.position;
+                }
+                break;
+
+            case SpecialMovements.spin:
+                Vector3 rotationAmount = new Vector3(0.0f, 0.0f, specialMovementValue * 360);
+                transform.rotation = Quaternion.Euler(rotationAmount);
+                break;
+            case SpecialMovements.none:
+
+                break;
+
+        }
+
         switch (horizontalMovement)
         {
             case HorizontalMovement.none: break;
@@ -115,9 +186,7 @@ public class GenericEnemy : MonoBehaviour
                 transform.position = ReverseLerpWithXValue(adjustedHorizontalLerp);
                 
                 break;
-            case HorizontalMovement.uncurl:
 
-                break;
             case HorizontalMovement.stretch:
                 transform.localScale = new Vector3 (adjustedHorizontalLerp * stretchAmount, transform.localScale.y, transform.localScale.z);
 
