@@ -12,6 +12,7 @@ public class GenericEnemy : MonoBehaviour
         toxicBurst, 
         spin, 
         alternatePos, 
+        warningZone,
     }
     public enum HorizontalMovement {
         none,
@@ -57,6 +58,10 @@ public class GenericEnemy : MonoBehaviour
     public Transform positionA = null;
     public Transform positionB = null;
 
+    public Material regularMaterial;
+    public Material warningMaterial; 
+
+
     private float xPositionA;
     private float xPositionB;
     private float yPositionA;
@@ -69,12 +74,17 @@ public class GenericEnemy : MonoBehaviour
     private float lerpValueHorizontal;
     private float lerpValueVertical;
 
-
+    private BoxCollider boxCollider;
+    private MeshRenderer meshRenderer;
     
 
     // Start is called before the first frame update
     private void Awake()
     {
+
+        boxCollider = GetComponent<BoxCollider>();
+        meshRenderer = GetComponent<MeshRenderer>();
+
         if (positionA != null)
         {
             xPositionA = positionA.position.x;
@@ -153,6 +163,19 @@ public class GenericEnemy : MonoBehaviour
             case SpecialMovements.spin:
                 Vector3 rotationAmount = new Vector3(0.0f, 0.0f, specialMovementValue * 360);
                 transform.rotation = Quaternion.Euler(rotationAmount);
+                break;
+            case SpecialMovements.warningZone:
+                if (specialMovementValue < 0.75f)
+                {
+                    boxCollider.enabled = false;
+                    meshRenderer.material = warningMaterial;
+
+                }
+                else
+                {
+                    boxCollider.enabled = true;
+                    meshRenderer.material = regularMaterial;
+                }
                 break;
             case SpecialMovements.none:
 
