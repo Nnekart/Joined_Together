@@ -126,5 +126,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bubble: {fileID: 8014986164044409499, guid: 3b5e0e4406353064695c1bee2f0fea3f, type: 3}
-  increaseInBubbleSize: 0.2
+  increaseInBubbleSize: 2
   bubbleScript: {fileID: 3612033217166782652, guid: 3b5e0e4406353064695c1bee2f0fea3f, type: 3}

@@ -281,7 +281,11 @@ public class GenericEnemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        GameManager.RestartScene();
+        if (other.gameObject.tag == "Player")
+        {
+            GameManager.RestartScene();
+        }
+       
 
     }
     
