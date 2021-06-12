@@ -53,8 +53,8 @@ public class GenericEnemy : MonoBehaviour
     public float stretchAmount;
     [Range(0, 10)]
     public float coolDownAmount;
-    public bool isSpinningRight = false; 
-
+    public bool isSpinningRight = false;
+    public bool startOnCooldown = false; 
 
     public Transform positionA = null;
     public Transform positionB = null;
@@ -99,7 +99,14 @@ public class GenericEnemy : MonoBehaviour
        
         startingXPos = transform.position.x;
         startingYPos = transform.position.y;
-        coolDown = coolDownAmount;
+        if (startOnCooldown)
+        {
+            coolDown = coolDownAmount;
+
+        } else
+        {
+            coolDown = 0.0f;
+        }
     }
 
     private void Start()
