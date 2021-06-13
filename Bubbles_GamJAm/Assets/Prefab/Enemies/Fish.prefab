@@ -52,7 +52,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8481402454484296262}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PositionB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8481402455121730222}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8481402455515191772}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PositionA
   m_TagString: Untagged
   m_Icon: {fileID: 0}

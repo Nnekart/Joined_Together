@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3283346613103863088}
   - component: {fileID: 3537007446388322916}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spinning fish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 7734709825102622450}
   - component: {fileID: 7734709825102622451}
   - component: {fileID: 7734709825102622449}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: fish spiral-Sheet_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 7734709825666545279}
   - component: {fileID: 7734709825666545272}
   - component: {fileID: 7734709825666545278}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: fish spiral-Sheet_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 7734709825729700698}
   - component: {fileID: 7734709825729700699}
   - component: {fileID: 7734709825729700697}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: fish spiral-Sheet_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
