@@ -32,6 +32,7 @@ public class GenericEnemy : MonoBehaviour
         bounceUp, 
         sinWave, 
         stretch, 
+        upAndDown,
     }
 
     public SpecialMovements specialMovements; 
@@ -129,7 +130,7 @@ public class GenericEnemy : MonoBehaviour
             boxCollider.enabled = false;
             return; 
         } else
-        {
+        { if (boxCollider != null)
             boxCollider.enabled = true;
         }
 
@@ -234,11 +235,13 @@ public class GenericEnemy : MonoBehaviour
                 transform.position =  new Vector3(newXValue, transform.position.y, transform.position.z);
                 if (lerpValueHorizontal > 1)
                 {
-                    spriteRenderer.flipX = false;
+                    if (spriteRenderer != null)
+                        spriteRenderer.flipX = false;
 
                 }
                 else
                 {
+                    if (spriteRenderer != null)
                     spriteRenderer.flipX = true;
                 }
                 break;
@@ -286,6 +289,10 @@ public class GenericEnemy : MonoBehaviour
                 
 
                 break;
+            case VerticalMovement.upAndDown:
+                newYValue = EasingFunction.EaseInOutSine(yPositionA, yPositionB, adjustedVerticalLerp);
+                transform.position = new Vector3(transform.position.x, newYValue, transform.position.z);
+                break;
         }
     }
 
@@ -322,5 +329,13 @@ public class GenericEnemy : MonoBehaviour
        
 
     }
-    
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            player.Shrink();
+        }
+    }
+
 }

@@ -10,7 +10,7 @@ public class Bubble : MonoBehaviour
     public float deflateRate;
     public Rigidbody Rb;
     public float speedModifier = 100;
-    public float superspeed = 200;
+    public float superspeed = 2000;
     private bool isSuperspeed = false;
     public float minScale = 0.2f;
     private void Start()
@@ -24,7 +24,18 @@ public class Bubble : MonoBehaviour
         //Rb.AddForce(transform.up * floating);
         if (isSuperspeed)
         {
-            Rb.AddForce(transform.up * speed * Time.deltaTime * superspeed);
+            if (speed < 0)
+            {
+                speed /= 2.0f;
+                speed += 0.5f;
+                Rb.AddForce(transform.up * speed * Time.deltaTime * speedModifier / 2);
+
+            }
+            else
+            {
+                Rb.AddForce(transform.up * speed * Time.deltaTime * superspeed);
+
+            }
 
         }
         else
