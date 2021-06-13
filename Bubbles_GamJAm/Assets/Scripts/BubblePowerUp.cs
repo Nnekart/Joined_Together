@@ -20,8 +20,9 @@ public class BubblePowerUp : MonoBehaviour
 
         if (collision.gameObject.tag == "Player")
         {
-            bubbleScript.floating += 0.5f;
+            //bubbleScript.floating += 0.5f;
             Rb.AddForce(transform.up * PowerUpSpeed);
+            bubbleScript.Grow();
             //Physics.gravity = new Vector3(0, 5f, 0);
             //maybe increase the bubble size more if the bubble is really tiny
             Bubble.transform.localScale += new Vector3(increaseInBubbleSize, increaseInBubbleSize, increaseInBubbleSize);

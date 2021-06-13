@@ -13,15 +13,21 @@ public class Bubble : MonoBehaviour
     public float superspeed = 2000;
     private bool isSuperspeed = false;
     public float minScale = 0.2f;
+    public AudioClip grow;
+    public AudioClip shrink;
+    public AudioSource audio;
+
     private void Start()
     {
         Rb = GetComponent<Rigidbody>();
+
     }
     void Update()
     {
         float speed = transform.localScale.magnitude - 2.0f;
         // Physics.gravity = new Vector3(0,floating,0);
         //Rb.AddForce(transform.up * floating);
+       // audio.Play();
         if (isSuperspeed)
         {
             if (speed < 0)
@@ -55,9 +61,17 @@ public class Bubble : MonoBehaviour
         }
     }
 
+    public void Grow()
+    {
+        audio.clip = grow;
+        audio.Play();
+    }
+
     public void Shrink()
     {
         transform.localScale /= 1.4f;
+        audio.clip = shrink;
+        audio.Play();
     }
 
     public void GoSuperSpeed()
