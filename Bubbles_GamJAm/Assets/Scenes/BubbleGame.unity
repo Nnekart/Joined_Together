@@ -2108,8 +2108,8 @@ MonoBehaviour:
   startOnCooldown: 1
   positionA: {fileID: 543489753034290369}
   positionB: {fileID: 543489754256784979}
-  regularMaterial: {fileID: 2100000, guid: 786ce93847268404e83c4ff1e1408fd0, type: 2}
-  warningMaterial: {fileID: 2100000, guid: f013f33b2a500ba498c69d64a06e97ef, type: 2}
+  regularMaterial: {fileID: 2100000, guid: 762993a185fec724aba130443ea63209, type: 2}
+  warningMaterial: {fileID: 2100000, guid: 762993a185fec724aba130443ea63209, type: 2}
   spriteRenderer: {fileID: 0}
 --- !u!65 &636631868
 BoxCollider:
