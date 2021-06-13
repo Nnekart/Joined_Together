@@ -27,7 +27,7 @@ public class TheSpeedTube : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             initalFloatValue = playerBubble.floating;
-            playerBubble.floating = superFloatValue;
+            playerBubble.floating = initalFloatValue * 1.5f;
         }
     }
 

@@ -4872,4 +4872,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerBubble: {fileID: 0}
-  superFloatValue: 52.9
+  superFloatValue: 8
