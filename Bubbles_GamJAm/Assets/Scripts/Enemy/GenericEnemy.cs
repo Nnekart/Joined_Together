@@ -55,7 +55,8 @@ public class GenericEnemy : MonoBehaviour
     [Range(0, 10)]
     public float coolDownAmount;
     public bool isSpinningRight = false;
-    public bool startOnCooldown = false; 
+    public bool startOnCooldown = false;
+    public bool willHurtPlayer = true; 
 
     public Transform positionA = null;
     public Transform positionB = null;
@@ -321,7 +322,7 @@ public class GenericEnemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && willHurtPlayer)
         {
             player.Shrink();
           //  GameManager.RestartScene();
@@ -332,7 +333,7 @@ public class GenericEnemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && willHurtPlayer)
         {
             player.Shrink();
         }
