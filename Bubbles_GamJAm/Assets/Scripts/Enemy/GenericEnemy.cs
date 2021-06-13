@@ -200,7 +200,7 @@ public class GenericEnemy : MonoBehaviour
                 {
                     boxCollider.enabled = false;
                     meshRenderer.material = warningMaterial;
-                    meshRenderer.material.color = new Color(meshRenderer.material.color.r, meshRenderer.material.color.g, meshRenderer.material.color.b, Mathf.Sin(specialMovementValue * 150));
+                    meshRenderer.material.color = new Color(meshRenderer.material.color.r, meshRenderer.material.color.g, meshRenderer.material.color.b, Mathf.Sin(specialMovementValue * 100.0f * Mathf.Pow(specialMovementValue * 1.5f, 2.0f)));
                 }
                 else
                 {

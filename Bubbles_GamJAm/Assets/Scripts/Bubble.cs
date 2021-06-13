@@ -46,7 +46,7 @@ public class Bubble : MonoBehaviour
 
     public void Shrink()
     {
-        transform.localScale /= 2;
+        transform.localScale /= 1.4f;
     }
 
     public void GoSuperSpeed()
