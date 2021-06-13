@@ -26,13 +26,17 @@ public class TheSpeedTube : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            initalFloatValue = playerBubble.floating;
-            playerBubble.floating = initalFloatValue * 1.5f;
+            playerBubble.GoSuperSpeed();
+            //initalFloatValue = playerBubble.floating;
+            //playerBubble.floating = initalFloatValue * 1.5f;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        playerBubble.floating = initalFloatValue;
+        if (other.gameObject.tag == "Player")
+        {
+            playerBubble.ReturnToNormalSpeed();
+        }
     }
 }

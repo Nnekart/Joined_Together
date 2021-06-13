@@ -79,12 +79,13 @@ public class GenericEnemy : MonoBehaviour
 
     private BoxCollider boxCollider;
     private MeshRenderer meshRenderer;
-    
+
+    Bubble player; 
 
     // Start is called before the first frame update
     private void Awake()
     {
-
+        player = FindObjectOfType<Bubble>();
         boxCollider = GetComponent<BoxCollider>();
         meshRenderer = GetComponent<MeshRenderer>();
 
@@ -315,7 +316,8 @@ public class GenericEnemy : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            GameManager.RestartScene();
+            player.Shrink();
+          //  GameManager.RestartScene();
         }
        
 
