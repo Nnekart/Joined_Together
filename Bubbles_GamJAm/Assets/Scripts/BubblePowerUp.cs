@@ -8,12 +8,18 @@ public class BubblePowerUp : MonoBehaviour
     public float increaseInBubbleSize;
     public Bubble bubbleScript;
 
+    private void Awake()
+    {
+        Physics.gravity = new Vector3(0, 5f, 0);
+
+    }
+
     public void OnCollisionEnter(Collision collision)
     {
        if (collision.gameObject.tag == "Player")
         {
             bubbleScript.floating += 0.5f;
-            Physics.gravity = new Vector3(0,5f,0);
+           // Physics.gravity = new Vector3(0,5f,0);
             Bubble.transform.localScale += new Vector3(increaseInBubbleSize,increaseInBubbleSize,increaseInBubbleSize);
             Destroy(this.gameObject);
         }
