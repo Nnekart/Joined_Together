@@ -17,7 +17,7 @@ public class deployBubbles : MonoBehaviour
     private void spawnPowerUpBubble()
     {
         GameObject bubblePowerUp = Instantiate(bubblePowerUpPrefab) as GameObject;
-        bubblePowerUp.transform.position = new Vector3(Random.Range(4, -4),transform.position.y,-10);
+        bubblePowerUp.transform.position = new Vector3(Random.Range(4, -4),transform.position.y,transform.position.z);
     }
     IEnumerator BubblePowerUpWave()
     {
