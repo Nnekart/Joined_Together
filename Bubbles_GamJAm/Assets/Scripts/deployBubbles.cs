@@ -7,8 +7,12 @@ public class deployBubbles : MonoBehaviour
     public GameObject bubblePowerUpPrefab;
     public float respawnTime = 1.0f;
     public Transform bubblepowerupgenerator;
-
+    private Rigidbody rb; 
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+    }
     void Start()
     {
         StartCoroutine(BubblePowerUpWave());
@@ -18,6 +22,9 @@ public class deployBubbles : MonoBehaviour
     {
         GameObject bubblePowerUp = Instantiate(bubblePowerUpPrefab) as GameObject;
         bubblePowerUp.transform.position = new Vector3(Random.Range(4, -4),transform.position.y,transform.position.z);
+        rb = bubblePowerUp.GetComponent<Rigidbody>();
+        rb.velocity = new Vector3(0.0f, 1.0f, 0.0f);
+
     }
     IEnumerator BubblePowerUpWave()
     {
