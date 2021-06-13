@@ -7,7 +7,8 @@ public class deployBubbles : MonoBehaviour
     public GameObject bubblePowerUpPrefab;
     public float respawnTime = 1.0f;
     public Transform bubblepowerupgenerator;
-    private Rigidbody rb; 
+    private Rigidbody rb;
+    
     // Start is called before the first frame update
 
     private void Awake()
