@@ -60,7 +60,9 @@ public class GenericEnemy : MonoBehaviour
     public Transform positionB = null;
 
     public Material regularMaterial;
-    public Material warningMaterial; 
+    public Material warningMaterial;
+
+    public SpriteRenderer spriteRenderer; 
 
 
     private float xPositionA;
@@ -216,10 +218,28 @@ public class GenericEnemy : MonoBehaviour
             case HorizontalMovement.none: break;
             case HorizontalMovement.acrossAndBackA:
                 transform.position = LerpWithXValue(adjustedHorizontalLerp);
+                if (lerpValueHorizontal > 1)
+                {
+                    spriteRenderer.flipX = false;
+
+                }
+                else
+                {
+                    spriteRenderer.flipX = true;
+                }
                 break;
             case HorizontalMovement.acrossAndBackB:
                 newXValue = EasingFunction.EaseInOutSine(xPositionA, xPositionB, adjustedHorizontalLerp);
                 transform.position =  new Vector3(newXValue, transform.position.y, transform.position.z);
+                if (lerpValueHorizontal > 1)
+                {
+                    spriteRenderer.flipX = false;
+
+                }
+                else
+                {
+                    spriteRenderer.flipX = true;
+                }
                 break;
             case HorizontalMovement.acrossAndBackC:
 
