@@ -123,7 +123,11 @@ public class GenericEnemy : MonoBehaviour
         if (coolDown > 0.0f)
         {
             coolDown -= Time.deltaTime;
+            boxCollider.enabled = false;
             return; 
+        } else
+        {
+            boxCollider.enabled = true;
         }
 
         //Special
