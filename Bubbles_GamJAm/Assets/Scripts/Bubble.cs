@@ -19,7 +19,7 @@ public class Bubble : MonoBehaviour
     }
     void Update()
     {
-        float speed = transform.localScale.magnitude - 1;
+        float speed = transform.localScale.magnitude - 2.0f;
         // Physics.gravity = new Vector3(0,floating,0);
         //Rb.AddForce(transform.up * floating);
         if (isSuperspeed)
